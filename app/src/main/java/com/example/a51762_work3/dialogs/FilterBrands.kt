@@ -42,8 +42,8 @@ import com.example.a51762_work3.ui.theme.greenText
 @Composable
 fun FilterBrandsDialog(
     onDismissRequest: () -> Unit, // return selected letter
+    mainViewModel: MainViewModel
 ) {
-    val mainViewModel: MainViewModel = viewModel()
     val letters = ('A'..'Z').map { it.toString() }
     var expanded by remember { mutableStateOf(false) }
     var selectedLetter by remember { mutableStateOf(letters.first()) }

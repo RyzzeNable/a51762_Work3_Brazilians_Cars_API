@@ -50,7 +50,7 @@ import java.text.Normalizer
 fun BrandScreen(modifier: Modifier = Modifier, mainViewModel: MainViewModel, onBrandSelected: (Brand) -> Unit){
     val brandstate by mainViewModel.brandsState
     var showDialog by remember { mutableStateOf(false) }
-    var filterLetter by remember {mutableStateOf("")}
+    val filterLetter by mainViewModel.filterLetter
 
     Box(modifier = modifier.fillMaxSize().background(greenSuperSmaller)) {
         when {
@@ -90,7 +90,8 @@ fun BrandScreen(modifier: Modifier = Modifier, mainViewModel: MainViewModel, onB
                         }
                         if(showDialog){
                             FilterBrandsDialog(
-                                onDismissRequest = { showDialog = false }
+                                onDismissRequest = { showDialog = false },
+                                mainViewModel = mainViewModel
                             )
                         }
                     }
