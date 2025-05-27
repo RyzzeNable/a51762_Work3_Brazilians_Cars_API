@@ -1,6 +1,5 @@
-package com.example.a51762_work3.Dialogs
+package com.example.a51762_work3.dialogs
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,12 +17,9 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonColors
-import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -38,11 +34,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.a51762_work3.Viewmodel.MainViewModel
+import com.example.a51762_work3.viewmodel.MainViewModel
 import com.example.a51762_work3.ui.theme.greenSmall
 import com.example.a51762_work3.ui.theme.greenSmaller
 import com.example.a51762_work3.ui.theme.greenText
-import com.example.a51762_work3.ui.theme.mainColor
 
 @Composable
 fun FilterBrandsDialog(

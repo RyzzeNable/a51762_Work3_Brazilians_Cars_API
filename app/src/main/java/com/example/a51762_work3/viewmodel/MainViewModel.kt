@@ -1,4 +1,4 @@
-package com.example.a51762_work3.Viewmodel
+package com.example.a51762_work3.viewmodel
 
 import android.util.Log
 import androidx.compose.runtime.State
@@ -6,11 +6,11 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.a51762_work3.API.carService
-import com.example.a51762_work3.Model.Brand
-import com.example.a51762_work3.Model.Model
-import com.example.a51762_work3.Model.ModelInfo
-import com.example.a51762_work3.Model.Year
+import com.example.a51762_work3.api.carService
+import com.example.a51762_work3.model.Brand
+import com.example.a51762_work3.model.Model
+import com.example.a51762_work3.model.ModelInfo
+import com.example.a51762_work3.model.Year
 import kotlinx.coroutines.launch
 import java.lang.Exception
 

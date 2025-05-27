@@ -3,29 +3,30 @@ package com.example.a51762_work3
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.a51762_work3.Screens.MainScreen
-import com.example.a51762_work3.Viewmodel.MainViewModel
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.compose.runtime.getValue
+import com.example.a51762_work3.viewmodel.MainViewModel
 import com.example.a51762_work3.components.TopBar
 import com.example.a51762_work3.ui.theme.A51762_Work3Theme
 import com.example.a51762_work3.ui.theme.greenSuperSmaller
+import androidx.navigation.compose.rememberNavController
+import com.example.a51762_work3.navigation.BrandsApp
+import com.example.a51762_work3.navigation.Screens
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val navController = rememberNavController()
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry?.destination?.route
+            val showBackArrow = currentRoute != Screens.Main.route
             A51762_Work3Theme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -36,11 +37,17 @@ class MainActivity : ComponentActivity() {
                         topBar = {
                             TopBar(
                                 title = "Cars Brands",
-                                onBackClick = { mainViewModel.removeScreen() }
+                                showBackArrow = showBackArrow,
+                                onBackClick = {
+                                    navController.navigateUp()
+                                    mainViewModel.removeScreen()
+                                }
                             )
                         }
                     ){ innerPadding ->
-                        MainScreen(modifier = Modifier.padding(innerPadding)
+                        BrandsApp(
+                            modifier = Modifier.padding(innerPadding),
+                            navController = navController
                         )
                     }
                 }

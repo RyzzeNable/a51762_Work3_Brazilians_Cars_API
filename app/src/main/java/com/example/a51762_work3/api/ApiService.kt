@@ -1,10 +1,9 @@
-package com.example.a51762_work3.API
+package com.example.a51762_work3.api
 
-import com.example.a51762_work3.Model.Brand
-import com.example.a51762_work3.Model.Model
-import com.example.a51762_work3.Model.ModelInfo
-import com.example.a51762_work3.Model.ModelsResponse
-import com.example.a51762_work3.Model.Year
+import com.example.a51762_work3.model.Brand
+import com.example.a51762_work3.model.ModelInfo
+import com.example.a51762_work3.model.ModelsResponse
+import com.example.a51762_work3.model.Year
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

@@ -12,12 +12,15 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.a51762_work3.Viewmodel.MainViewModel
+import com.example.a51762_work3.viewmodel.MainViewModel
 import com.example.a51762_work3.ui.theme.mainColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar(title: String = "Cars Brands", onBackClick: (() -> Unit)? = null) {
+fun TopBar(title: String = "Cars Brands",
+           showBackArrow: Boolean = false,
+           onBackClick: () -> Unit = {}
+) {
     val mainViewModel: MainViewModel = viewModel()
     val screenStack = mainViewModel.screenStack
     CenterAlignedTopAppBar(
@@ -31,7 +34,7 @@ fun TopBar(title: String = "Cars Brands", onBackClick: (() -> Unit)? = null) {
             )
         },
         navigationIcon = {
-            if (onBackClick != null && screenStack.size > 1) {
+            if (showBackArrow) {
                 IconButton(onClick = onBackClick) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
